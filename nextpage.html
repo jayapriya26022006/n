@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HI PATTU</title>
+    <style>
+        body {
+            background: url('https://img.freepik.com/premium-photo/mesmerizing-galaxy-colorful-ai-generated_874192-2522.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Arial', sans-serif;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+            margin-top: 20px;
+        }
+        p, ul {
+            line-height: 1.6;
+            margin: 20px auto; 
+            max-width: 600px; 
+            text-align: justify; 
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        strong {
+            color: #ffcc00; 
+        }
+        .controls {
+            position: fixed;
+            top: 10px; 
+            right: 20px; 
+            background-color: rgba(0, 0, 0, 0.6); 
+            padding: 10px;
+            border-radius: 10px;
+            z-index: 1000; 
+        }
+        .controls button, .controls input {
+            margin: 5px 0;
+            color: white;
+            background-color: #333;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .controls button:hover, .controls input:hover {
+            background-color: #ffcc00;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>DHARANI SELVAN</h1>
+    <p>
+        Happy birthday pattu, sirikura thana, eppo konjam pesaporen cringe ga irrukum but unnaku vera vazhu illa kaelu..
+        one small remainder : corner la off nu oru button irrukum atha click pannu please. 
+    </p>
+    <p>
+        life la eppaiyum nee happy ya mattum than irrukanum entha problem vanthalum pathukalam, solvepandidalam, athukaga ethaiyum yoshikatha, atha nenaichi upset ta irrukatha.
+        <br> nee upset ta irruntha aprm naanum upset agiduven pathuko.
+        enimae un life la irrukara ella stagelaiyum naan irrupen athu athuva irrunthalum sari, naan irrupan.
+    </p>
+    <p>
+        nammakula evlo sanda vanthalum, evlo periya problem nammakku naduvulla vanthalum sanda poduvum, ana antha situation la yoshikalam unku enna pathi theriyum, enku unna pathi theriyum, namma theriyama than etho pannom, sanda venam nu samathanama poidalama.
+    </p>
+    <p>
+        unnaku theriyathu ana sometimes nee solluva unku enna pudikathu compare pannura mathavangakudalam apdinu ana manasara solluran naan apdilam nenaikala.
+        <ul>
+            <li>Entha ullagathilae unna mattum than da pudikum.</li>
+            <li>enku uruthavangala easyalam pudichidathu nee nenaikalam naan vera boys kitta pesnathu illa athanala apdinu ana apdilam illa. evlo peru pesi irrukanga antha marilam oru ennamae vanthathu illa.</li>
+            <li><strong>entha life la enku nee mattum than.</strong></li>
+        </ul>
+    </p>
+    <p>
+        unkuda oru full life fae imagine pannivachirukken.<br>
+        namma nalla hardwork pannuvom.<br>
+        namma parents samathathoda onna irrupom nu enku nambikka irruku.<br>
+        athukku neeeee happy ya irrukanum, apa than naangalam happya irrupom.<br>
+        enna nadanthalum, entha problem vanthalum onna face panlam.<br>
+        sanda podalam aprm solve pannikalam.<br>
+    </p>
+    <p><i><q>I LOVE YOU.</q></i></p>
+    <p><i><q>ONCE AGAIN HAPPY BIRTHDAY</q></i></p>
+    <p>NOTE: MARUBADIYUM BUTTON OFF PANNIDU ILLANA KATHITU.</p>
+
+    <div class="controls">
+        <button id="playPauseBtn" onclick="toggleAudio()">Off</button>
+        <input type="range" id="volume-control" value="100" onchange="setVolume(this.value)" />
+    </div>
+
+    <audio id="background-audio" loop>
+        <source src="file:///C:/Users/JAYAPRIYA/OneDrive/Documents/Sound%20Recordings/WhatsApp%20Audio%202024-09-22%20at%2017.24.15_42f8bb93.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const audio = document.getElementById('background-audio');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        let reminderTimeout;
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = 'Off'; // Button shows "Off" when audio is playing
+                startReminder(); // Start the reminder
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = 'On'; // Button shows "On" when audio is paused
+                stopReminder(); // Stop the reminder
+            }
+        }
+
+        function startReminder() {
+            reminderTimeout = setTimeout(() => {
+                alert("Don't forget to enjoy the music!");
+            }, 30000); // Reminder after 30 seconds
+        }
+
+        function stopReminder() {
+            clearTimeout(reminderTimeout); // Clear the reminder if audio is paused
+        }
+
+        function setVolume(value) {
+            audio.volume = value / 100;
+        }
+
+        // Play audio as soon as the page loads
+        window.addEventListener('load', function() {
+            audio.play().catch(function(error) {
+                console.log('Autoplay prevented:', error);
+            });
+        });
+    </script>
+</body>
+</html>

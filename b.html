@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Display</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            transition: background-color 0.3s;
+        }
+        #countdown {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 70px;
+            color: #311f1f;
+        }
+        #mainImage {
+            width: 400px;
+            height: 400px;
+            margin-top: 100px;
+        }
+        #blowButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 24px;
+            background-color: #f9056b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #blowButton:hover {
+            background-color: #e64a19;
+        }
+        #birthdayText {
+            position: absolute;
+            top: 100px;
+            font-size: 50px;
+            color: black;
+            font-weight: bold;
+            font-style: italic;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="countdown"></div>
+    <div id="birthdayText">Happy Birthday Pattu!</div>
+    <img id="mainImage" src="https://img.freepik.com/premium-vector/birthday-cake-vector-illustration_716135-2620.jpg?w=2000" alt="Birthday Cake">
+    <button id="blowButton" onclick="startCountdown()">Blow Out</button>
+
+    <audio id="firstAudio" src="file:///C:/Users/JAYAPRIYA/OneDrive/Documents/Sound%20Recordings/Recording.m4a"></audio>
+    <audio id="secondAudio" src="file:///C:/Users/JAYAPRIYA/OneDrive/Documents/Sound%20Recordings/Recording%20(4).m4a"></audio>
+
+    <script>
+        let colorInterval;
+
+        function startCountdown() {
+            let count = 3;
+            const countdownElement = document.getElementById("countdown");
+            countdownElement.innerText = count;
+
+            const interval = setInterval(() => {
+                count--;
+                countdownElement.innerText = count;
+
+                if (count === 0) {
+                    clearInterval(interval);
+                    changeImage();
+                    blastColors();
+                    document.getElementById("firstAudio").play();
+                }
+            }, 1000);
+        }
+
+        function changeImage() {
+            document.getElementById("mainImage").src = "file:///C:/Users/JAYAPRIYA/Downloads/artguru-remove-object-1726995589480.png";
+            document.getElementById("countdown").innerText = '';
+            document.getElementById("blowButton").innerText = "Cut the Cake";
+            document.getElementById("blowButton").setAttribute("onclick", "showCakeImage()");
+        }
+
+        function showCakeImage() {
+            document.getElementById("mainImage").src = "https://2.bp.blogspot.com/-qRenGFPtw48/T3W9UTB0nyI/AAAAAAAAAcI/2Nvqt_IiyPQ/s1600/Cake.png";
+            document.body.style.backgroundColor = "white";
+            document.getElementById("blowButton").innerText = "Next Polama"; // Change to "Next Polama"
+            document.getElementById("blowButton").setAttribute("onclick", "goToNextPage()"); // Update to new function
+            
+            clearInterval(colorInterval);
+            document.getElementById("birthdayText").style.display = 'block';
+            document.getElementById("secondAudio").play();
+        }
+
+        function goToNextPage() {
+            window.location.href = "nextpage.html"; // Change to the filename of your new page
+        }
+
+        function blastColors() {
+            const colors = ["#ff5733", "#33ff57", "#3357ff", "#f0e68c", "#ff33a1", "#33fff7"];
+            let i = 0;
+
+            colorInterval = setInterval(() => {
+                document.body.style.backgroundColor = colors[i % colors.length];
+                i++;
+
+                if (i === 20) {
+                    clearInterval(colorInterval);
+                    document.body.style.backgroundColor = "#fdfbfa";
+                }
+            }, 300);
+        }
+    </script>
+
+</body>
+</html>
